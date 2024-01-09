@@ -1,5 +1,5 @@
 import "./header.css";
-import Restaurant from "../Static/Images/Restaurant.png";
+import Restaurant from "../../Static/Images/Restaurant.png";
 
 const Header = () => {
   return (

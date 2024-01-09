@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 // Local Imports
-import Header from "./src/Header/Header";
-import Body from "./src/Body/Body";
+import Header from "./src/components/Header/Header";
+import Body from "./src/components/Body/Body";
 
 const App = () => {
     return (

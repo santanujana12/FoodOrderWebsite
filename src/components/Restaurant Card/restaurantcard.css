@@ -1,9 +1,10 @@
 .restaurant-card{
-    height:250px;
-    width:250px;
+    height:300px;
+    width:310px;
     padding: 5px;
     background-color: #e1eaea;
     margin:5px;
+    text-wrap: wrap;
 }
 
 .restaurant-card:hover{
