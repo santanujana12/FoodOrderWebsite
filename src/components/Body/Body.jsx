@@ -6,6 +6,7 @@ import SpiningLoader from "../Loaders/loading1";
 import ShimmerGroup from "../Loaders/shimmerGroup";
 
 import "./body.css";
+import { Link } from "react-router-dom";
 
 
 const Body = () => {
@@ -19,7 +20,7 @@ const Body = () => {
         const data = await fetch("https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5175862&lng=88.3494328&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const jsonData = await data.json();
 
-        setlistOfRestaurant(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setlistOfRestaurant(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
     useEffect(()=>{
@@ -50,12 +51,22 @@ const Body = () => {
                 {/* Using Live data */}
                 {searchTable? searchTable.map((resItem)=>{
                     return (
-                        <RestaurantCard key={resItem?.info?.id} resItem={resItem}/>
-                    )
+                      <Link
+                        to={"/restaurants/" + resItem?.info?.id}
+                        key={resItem?.info?.id}
+                      >
+                        <RestaurantCard resItem={resItem} />
+                      </Link>
+                    );
                 }): listOfRestaurant? listOfRestaurant.map((resItem)=>{
                     return (
-                        <RestaurantCard key={resItem?.info?.id} resItem={resItem}/>
-                    )
+                      <Link
+                        to={"/restaurants/" + resItem?.info?.id}
+                        key={resItem?.info?.id}
+                      >
+                        <RestaurantCard resItem={resItem} />
+                      </Link>
+                    );
                 }):<ShimmerGroup/>}
                
             </div>

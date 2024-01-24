@@ -7,6 +7,7 @@ import Header from "./src/components/Header/Header";
 import Body from "./src/components/Body/Body";
 import About from "./src/components/About/About";
 import Contact from "./src/components/Contact/Contact";
+import RestaurantInfo from "./src/components/RestaurantInfo/restaurantInfo";
 import Error from "./src/components/ErrorPage/Error";
 
 const App = () => {
@@ -36,6 +37,10 @@ const routers = createBrowserRouter([
         {
             path:"/contact",
             element:<Contact/>
+        },
+        {
+            path:"/restaurants/:resId",
+            element:<RestaurantInfo/>
         }
     ],
   },
