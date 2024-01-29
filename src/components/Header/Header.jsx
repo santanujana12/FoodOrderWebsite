@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 
 import "./header.css";
 import Restaurant from "../../Static/Images/Restaurant.png";
+import { useOnline } from "../../utils/CustomHooks/useOnline";
 
 const Header = () => {
+
+  const isOnline = useOnline();
+
   return (
     <div className="head-container">
       <div>
@@ -15,6 +19,7 @@ const Header = () => {
       </div>
       <div className="nav-head">
         <ul>
+          <li>{isOnline?"🟢 Online":"🔴 Offline"}</li>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -25,6 +30,9 @@ const Header = () => {
             <Link to="/contact">Contact Us</Link>
           </li>
           <li>Cart</li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
+          </li>
         </ul>
       </div>
     </div>
