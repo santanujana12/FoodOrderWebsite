@@ -41,7 +41,9 @@ const Body = () => {
                 <input type="text" placeholder="Search" value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
                 <button onClick={handleSearchTable}>Search</button>
             </div><br />
-            <div style={{display:"flex", flexWrap:"wrap"}}>
+            <div 
+            // style={{display:"flex", flexWrap:"wrap"}}
+            >
                 {/* To be used to render MockData */}
                 {/* {resInfo.data.cards[5].card.card.gridElements.infoWithStyle.restaurants.map((resItem)=>{
                     return (

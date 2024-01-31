@@ -9,17 +9,18 @@ const Header = () => {
   const isOnline = useOnline();
 
   return (
-    <div className="head-container">
+    <div className="flex ">
       <div>
         <img
+          className="w-32"
           src={Restaurant}
           alt="Restaurant-image"
-          style={{ width: "150px", height: "90px" }}
+          // style={{ width: "150px", height: "90px" }}
         />
       </div>
       <div className="nav-head">
         <ul>
-          <li>{isOnline?"🟢 Online":"🔴 Offline"}</li>
+          <li>{isOnline ? "🟢 Online" : "🔴 Offline"}</li>
           <li>
             <Link to="/">Home</Link>
           </li>
