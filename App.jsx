@@ -60,3 +60,37 @@ const routers = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={routers}/>);
+
+
+// Implementation of Protected Route
+// import {Navigate} from 'react-router-dom';
+/*
+  function ProtectedRoute({children}){
+    if(localStorage.getItem("user-info")){
+      return children
+    }else{
+      return <Navigate to="/login"/>
+    }
+  }
+
+
+  const routers = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <Error />,
+    // Children routes
+    children: [
+      {
+        path: "/",
+        element: (
+          <ProtectedRoute>
+            <Body />
+          <ProtectedRoute/>,
+        )
+      },
+    ]
+  }
+])
+
+*/

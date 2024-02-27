@@ -36,43 +36,58 @@ const Body = () => {
     }
     
     return (
-        <div className="body-container">
-            <div>
-                <input type="text" placeholder="Search" value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
-                <button onClick={handleSearchTable}>Search</button>
-            </div><br />
-            <div 
-            // style={{display:"flex", flexWrap:"wrap"}}
-            >
-                {/* To be used to render MockData */}
-                {/* {resInfo.data.cards[5].card.card.gridElements.infoWithStyle.restaurants.map((resItem)=>{
+      <div>
+        <div className="m-3">
+          <input
+            className="border-2"
+            type="text"
+            placeholder="Search"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <button
+            className="ml-2 bg-green-300 w-20 h-7 whitespace-normal rounded-md"
+            onClick={handleSearchTable}
+          >
+            Search
+          </button>
+        </div>
+        <br />
+        <div className="flex flex-wrap gap-4 p-4">
+          {/* To be used to render MockData */}
+          {/* {resInfo.data.cards[5].card.card.gridElements.infoWithStyle.restaurants.map((resItem)=>{
                     return (
                         <RestaurantCard key={resItem?.info?.id} resItem={resItem}/>
                     );
                 })} */}
-                {/* Using Live data */}
-                {searchTable? searchTable.map((resItem)=>{
-                    return (
-                      <Link
-                        to={"/restaurants/" + resItem?.info?.id}
-                        key={resItem?.info?.id}
-                      >
-                        <RestaurantCard resItem={resItem} />
-                      </Link>
-                    );
-                }): listOfRestaurant? listOfRestaurant.map((resItem)=>{
-                    return (
-                      <Link
-                        to={"/restaurants/" + resItem?.info?.id}
-                        key={resItem?.info?.id}
-                      >
-                        <RestaurantCard resItem={resItem} />
-                      </Link>
-                    );
-                }):<ShimmerGroup/>}
-               
-            </div>
+          {/* Using Live data */}
+          {searchTable ? (
+            searchTable.map((resItem) => {
+              return (
+                <Link
+                  to={"/restaurants/" + resItem?.info?.id}
+                  key={resItem?.info?.id}
+                >
+                  <RestaurantCard resItem={resItem} />
+                </Link>
+              );
+            })
+          ) : listOfRestaurant ? (
+            listOfRestaurant.map((resItem) => {
+              return (
+                <Link
+                  to={"/restaurants/" + resItem?.info?.id}
+                  key={resItem?.info?.id}
+                >
+                  <RestaurantCard resItem={resItem} />
+                </Link>
+              );
+            })
+          ) : (
+            <ShimmerGroup />
+          )}
         </div>
+      </div>
     );
 }
 export default Body;

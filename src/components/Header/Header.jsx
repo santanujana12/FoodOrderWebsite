@@ -9,7 +9,7 @@ const Header = () => {
   const isOnline = useOnline();
 
   return (
-    <div className="flex ">
+    <div className="flex justify-between bg-yellow-100">
       <div>
         <img
           className="w-32"
@@ -19,7 +19,7 @@ const Header = () => {
         />
       </div>
       <div className="nav-head">
-        <ul>
+        <ul className="flex gap-4 p-4">
           <li>{isOnline ? "🟢 Online" : "🔴 Offline"}</li>
           <li>
             <Link to="/">Home</Link>
