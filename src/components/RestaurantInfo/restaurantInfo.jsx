@@ -13,7 +13,7 @@ const RestaurantInfo = () => {
 
   const fetchdata = async () => {
     const data = await fetch(
-      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.5175862&lng=88.3494328&restaurantId=" +
+      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.5175862&lng=88.3494328&restaurantId=" +
         resId
     );
     const parseData = await data.json();
@@ -26,18 +26,22 @@ const RestaurantInfo = () => {
 
   return resInfo ? (
     <div className="res-container">
-      <h3>{resInfo?.cards[0]?.card?.card?.info?.name}</h3>
+      <div className="font-bold text-xl text-center">{resInfo?.cards[0]?.card?.card?.info?.name}</div>
       <img
         src={imageCDN + resInfo?.cards[0]?.card?.card?.info?.cloudinaryImageId}
-        style={{ height: "250px", width: "250px" }}
+        className="h-52 w-52 mx-auto"
       />
-      <p>
+      <div className="text-xl font-bold text-center">
         {resInfo?.cards[0]?.card?.card?.info?.cuisines?.join(",")} -{" "}
         {resInfo?.cards[0]?.card?.card?.info?.costForTwoMessage}
-      </p>
-      {resInfo?.cards[2].groupedCard.cardGroupMap.REGULAR.cards.map((item) => {
-        return <RestaurantMenu menu={item} />;
-      })}
+      </div>
+      <div>
+        {resInfo?.cards[2].groupedCard.cardGroupMap.REGULAR.cards.map(
+          (item,index) => {
+            return <RestaurantMenu key={index} menu={item} />;
+          }
+        )}
+      </div>
     </div>
   ) : (
     <div>
