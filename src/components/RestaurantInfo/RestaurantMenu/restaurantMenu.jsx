@@ -1,3 +1,5 @@
+import AccordionComponent from "./AccordionComponent";
+
 const RestaurantMenu = ({ menu }) => {
   return (
     <>
@@ -16,7 +18,7 @@ const RestaurantMenu = ({ menu }) => {
             <div>⬇️</div>
           </div>
           {/* Accordion component */}
-          <div>
+          {/* <div>
             {menu?.card?.card?.itemCards
               ? menu?.card?.card?.itemCards?.map((menu) => {
                   return (
@@ -47,7 +49,8 @@ const RestaurantMenu = ({ menu }) => {
                   </div>
                 );
               })}
-          </div>
+          </div> */}
+          <AccordionComponent menu={menu}/>
         </div>
       )}
     </>
