@@ -6,7 +6,7 @@ const RestaurantMenu = ({ menu }) => {
       {menu?.card?.card?.title && (
         <div className="box-content p-4 w-6/12 bg-gray-200 my-2 mx-auto shadow-md rounded-md">
           <div className="flex justify-between">
-            <div className="flex-wrap font-bold text-lg">
+            <div className="flex-wrap font-bold text-2xl">
               {menu?.card?.card?.title} - (
               {menu?.card?.card?.itemCards
                 ? menu?.card?.card?.itemCards?.length
@@ -15,7 +15,7 @@ const RestaurantMenu = ({ menu }) => {
                 : menu?.card?.card?.categories?.length}
               )
             </div>
-            <div>⬇️</div>
+            <div className="text-2xl">⬇️</div>
           </div>
           {/* Accordion component */}
           {/* <div>
