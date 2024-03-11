@@ -16,6 +16,7 @@ const AccordionComponent = ({ menu }) => {
                         ? menu?.card?.info?.price / 100
                         : menu?.card?.info?.defaultPrice / 100}
                     </div>
+                    <br />
                     <div className="text-sm">
                       {menu?.card?.info?.description}
                     </div>
@@ -46,6 +47,7 @@ const AccordionComponent = ({ menu }) => {
                         ? menu?.dish.info?.price / 100
                         : menu?.dish?.info?.defaultPrice / 100}
                     </div>
+                    <br />
                     <div className="text-sm">
                       {menu?.dish.info?.description}
                     </div>
@@ -68,7 +70,7 @@ const AccordionComponent = ({ menu }) => {
         : menu?.card?.card?.categories?.map((eachMenu, index) => {
             return (
               <div key={index}>
-                {console.log(eachMenu)}
+                {/* {console.log(eachMenu)} */}
                 <div>{eachMenu?.title}</div>
                 <div>
                   {eachMenu?.card?.card?.itemCards?.map((item) => {

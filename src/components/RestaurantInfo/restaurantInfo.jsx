@@ -11,6 +11,9 @@ const RestaurantInfo = () => {
   const { resId } = useParams();
   const [resInfo, setResInfo] = useState(null);
 
+  // Lifted the state up from the RestaurantMenu component to make the accordion close once one accordion gets opened
+  const [showItems, setShowItems] = useState(null);
+
   const fetchdata = async () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.5175862&lng=88.3494328&restaurantId=" +
@@ -23,6 +26,10 @@ const RestaurantInfo = () => {
   useEffect(() => {
     fetchdata();
   }, []);
+
+  const handleShowItems=(index)=>{
+    index === showItems ? setShowItems(null) : setShowItems(index);
+  }
 
   return resInfo ? (
     <div className="res-container">
@@ -38,7 +45,7 @@ const RestaurantInfo = () => {
       <div>
         {resInfo?.cards[2].groupedCard.cardGroupMap.REGULAR.cards.map(
           (item,index) => {
-            return <RestaurantMenu key={index} menu={item} />;
+            return <RestaurantMenu key={index} index={index} menu={item} showItems={showItems} setShowItems={()=>handleShowItems(index)}/>;
           }
         )}
       </div>
