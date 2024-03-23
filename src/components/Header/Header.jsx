@@ -1,10 +1,16 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import "./header.css";
 import Restaurant from "../../Static/Images/Restaurant.png";
 import { useOnline } from "../../utils/CustomHooks/useOnline";
 
+// Importing context APIs
+import { UserContext } from "../../utils/ContextAPIs/UserContext";
+
 const Header = () => {
+
+  const {loggedInUser} = useContext(UserContext);
 
   const isOnline = useOnline();
 
@@ -34,6 +40,7 @@ const Header = () => {
           <li>
             <Link to="/grocery">Grocery</Link>
           </li>
+          <li>{loggedInUser}</li>
         </ul>
       </div>
     </div>

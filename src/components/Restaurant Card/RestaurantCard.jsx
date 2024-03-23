@@ -1,7 +1,16 @@
+import { useContext } from "react";
+
 import { imageCDN } from "../../utils/urlLinks";
 import "./restaurantcard.css";
 
+// importing context API
+import { UserContext } from "../../utils/ContextAPIs/UserContext";
+
+
 const RestaurantCard = ({resItem}) => {
+
+  const {loggedInUser} = useContext(UserContext);
+
     return (
       <div className="m-4 p-4 w-[400px] h-[400px] bg-slate-300 flex justify-center items-center flex-col hover:bg-slate-400">
         <img
@@ -17,6 +26,7 @@ const RestaurantCard = ({resItem}) => {
           </h4>
           <h4>{resItem?.info?.avgRatingString} stars</h4>
           <h4>{resItem?.info?.sla?.deliveryTime} minutes</h4>
+          <h4>UserName: {loggedInUser}</h4>
         </div>
       </div>
     );

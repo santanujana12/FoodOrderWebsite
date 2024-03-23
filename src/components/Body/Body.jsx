@@ -1,16 +1,19 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect,useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { resInfo } from "../../MockData/restaurantInfo"; 
 import RestaurantCard from "../Restaurant Card/RestaurantCard";
 import SpiningLoader from "../Loaders/loading1";
 import ShimmerGroup from "../Loaders/shimmerGroup";
-
 import "./body.css";
-import { Link } from "react-router-dom";
+
+// Import context API
+import { UserContext } from "../../utils/ContextAPIs/UserContext";
+
 
 
 const Body = () => {
-
+    const { loggedInUser, setUserName} = useContext(UserContext);
     const [listOfRestaurant,setlistOfRestaurant] = useState(null);
     const [searchText,setSearchText] = useState("");
     const [searchTable,setSearchTable] = useState(null);
@@ -50,6 +53,13 @@ const Body = () => {
           >
             Search
           </button>
+          <input
+            className="border-2"
+            type="text"
+            placeholder="UserName"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
         </div>
         <br />
         <div className="flex flex-wrap gap-4 p-4">
