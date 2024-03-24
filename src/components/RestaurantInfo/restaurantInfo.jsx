@@ -23,6 +23,7 @@ const RestaurantInfo = () => {
     setResInfo(parseData?.data);
   };
 
+  // API CALL
   useEffect(() => {
     fetchdata();
   }, []);
